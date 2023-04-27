@@ -7,9 +7,9 @@
 <div class="container">
     <div class="row end-xs mt-1">
         <div class="col-xs-12">
-            <input type="text" class="search-input" placeholder="Search Students"
-            [(ngModel)] = "filterString" (keyup)="filterStudents()"
-            >
+          <input type="text" class="search-input" placeholder="Search Students"
+          [(ngModel)] = "filterString" (keyup)="filterStudents()"
+          >
         </div>
     </div>
     <div class="mt-1 mat-elevation-z10">
@@ -48,6 +48,18 @@
             <ng-container matColumnDef="gender">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Gender </th>
             <td mat-cell *matCellDef="let row"> {{row.gender.description}} </td>
+            </ng-container>
+
+            <!--Action Column-->
+            <ng-container matColumnDef="Action">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
+              <td mat-cell *matCellDef="let row">
+                <a [routerLink]="['/students',row.id]">
+                  <mat-icon color="warn">
+                    edit
+                  </mat-icon>
+                </a>
+              </td>
             </ng-container>
         
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

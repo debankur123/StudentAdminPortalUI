@@ -7,7 +7,7 @@ export interface Student{
     lastName : string;
     dob : string;
     email : string;
-    mobile : string;
+    mobile : number;
     profileImageURL : string;
     genderID : string;
     gender : Gender;

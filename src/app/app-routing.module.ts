@@ -6,7 +6,7 @@ import { ViewStudentComponent } from './view-student/view-student.component';
 const routes: Routes = [
   {path : '', component : StudentsComponent},
   {path : 'students', component : StudentsComponent},
-  {path : 'students/:id',component : ViewStudentComponent}
+  {path : 'students/:id',component : ViewStudentComponent},
 ];
 
 @NgModule({

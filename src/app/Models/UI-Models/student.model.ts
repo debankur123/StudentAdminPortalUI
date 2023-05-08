@@ -2,7 +2,7 @@ import { Address } from "./address.model";
 import { Gender } from "./gender.model";
 
 export interface Student{
-    id : string;
+    id : number;
     firstName : string;
     lastName : string;
     dob : string;

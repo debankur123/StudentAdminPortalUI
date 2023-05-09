@@ -85,7 +85,11 @@
                 </div>
                 <div class="row" >
                     <div class="col-xs-12">
-                        <button mat-raised-button color="primary" style="bottom: 5px;" (click)="onUpdate()">Save</button>
+                        <div class="row between-xs">
+                            <button mat-raised-button color="primary" style="bottom: 5px;" (click)="onUpdate()">Save</button>
+                            <button mat-raised-button color="warn" style="bottom: 5px;" (click)="onDelete()">Delete</button>
+                        </div>
+                        
                     </div>
                 </div>
             </form>

@@ -34,6 +34,7 @@ export class ViewStudentComponent implements OnInit {
   };
   isNewStudent = false;
   header = '';
+  displayProfileImageURL = '';
   genderList: Gender[] = [];
 
   constructor(
@@ -52,15 +53,20 @@ export class ViewStudentComponent implements OnInit {
           // Add new Student Functionality
           this.isNewStudent = true;
           this.header = 'Add New Student';
+          this.SetImage();
         } else {
           // -> Existing Student Functionality
           this.isNewStudent = false;
           this.header = 'Edit Student';
-          this.studentService
-            .getStudentById(this.studentId)
-            .subscribe((success) => {
+          this.studentService.getStudentById(this.studentId).subscribe(
+            (success) => {
               this.student = success;
-            });
+              this.SetImage();
+            },
+            (error) => {
+              this.SetImage();
+            }
+          );
         }
         this.genderservice.getGenderList().subscribe((response) => {
           this.genderList = response;
@@ -120,5 +126,36 @@ export class ViewStudentComponent implements OnInit {
         console.log(err);
       }
     );
+  }
+
+  uploadImage(event: any): void {
+    if (this.student) {
+      const file = event.target.files[0];
+      this.studentService
+        .uploadImage(this.student.id.toString(), file)
+        .subscribe(
+          (success) => {
+            this.student.profileImageURL = success;
+            this.SetImage();
+
+            this.snackbar.open('Image uploaded Successfully', undefined, {
+              duration: 2000,
+            });
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
+    }
+  }
+
+  private SetImage(): void {
+    if (this.student.profileImageURL) {
+      //Fetch the URL
+      this.displayProfileImageURL = this.studentService.getImagePath(this.student.profileImageURL) ;
+    } else {
+      //display default profile image
+      this.displayProfileImageURL = '/assets/Profile_Avatar.jpg';
+    }
   }
 }

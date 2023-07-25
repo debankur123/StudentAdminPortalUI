@@ -16,6 +16,24 @@ width: 100%;
     
 }  
 
+.profile-image {
+    width: 300px; /* Set the maximum width of the image */
+  }
+
+.image-container{
+    width: 200px;
+    height: 200px;
+    background-color: #f7f7f7;
+    border : 2px solid #ccc;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+}
+  
+
   
   
   

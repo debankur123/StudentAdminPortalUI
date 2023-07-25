@@ -12,10 +12,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     text-align: center;
 }
 .mt-1{
-    margin-top: 1em;
+    margin-top: 1em !important;
     bottom: 5px;
     position: relative;
     border-top: 3px;
 }
+.ml-1{
+    margin-left: 1em !important;
+}
+
 
   

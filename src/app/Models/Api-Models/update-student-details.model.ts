@@ -6,7 +6,7 @@ export interface UpdateStudentDetails{
     LastName : string;
     DOB : string;
     Email : string;
-    Mobile : number;
+    Mobile : string;
     GenderID : string;
     address : Address
     postalAddress : string;
